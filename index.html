@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5f7fb">
+<title>交流電波形實驗室｜AC Wave Lab</title>
+<style>
+:root{color-scheme:light;--ink:#172033;--muted:#69758a;--line:#e4eaf2;--paper:#fff;--bg:#f5f7fb;--blue:#4361ee;--cyan:#30c8c4;--orange:#ff9b63;--green:#16876c;--shadow:0 12px 36px #2334570b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.55}.page{max-width:1150px;margin:auto;padding:38px 32px 48px}.topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:27px}.brand{display:flex;align-items:center;gap:11px;font-size:14px;font-weight:750;letter-spacing:.02em}.brandmark{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#e8edff;color:var(--blue);font-size:19px}.level{border:1px solid #dce5f1;border-radius:99px;padding:6px 12px;color:#58657a;font-size:12px;font-weight:650;background:#fff}.intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:23px}.eyebrow{margin:0 0 6px;color:var(--blue);font-size:11px;letter-spacing:.16em;font-weight:800}.intro h1{margin:0;font-size:clamp(27px,4vw,38px);letter-spacing:-.035em;line-height:1.2}.intro p{margin:10px 0 0;color:var(--muted);font-size:14px}.hint{color:#748096;font-size:12px;white-space:nowrap;padding-bottom:5px}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(265px,.9fr);gap:17px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}.chart-panel{padding:20px 21px 17px;min-width:0}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-title{margin:0;font-size:15px;font-weight:750}.live{display:flex;gap:7px;align-items:center;color:#738096;font-size:11px}.motion-toggle{margin-left:6px;padding:6px 9px;border:1px solid #e4eaf2;border-radius:8px;background:#fff;color:#53617a;font:inherit;font-size:11px;cursor:pointer}.motion-toggle:hover{background:#f7f8fc}@media(pointer:coarse){.motion-toggle{min-height:44px}}.dot{width:7px;height:7px;background:var(--green);border-radius:50%;box-shadow:0 0 0 3px #e4f5ef}.chart-wrap{position:relative;margin-top:13px;background:#fbfcff;border:1px solid #edf0f6;border-radius:13px;overflow:hidden}canvas{width:100%;height:290px;display:block}.chart-caption{display:flex;justify-content:space-between;gap:10px;color:#8791a2;font-size:11px;padding:1px 3px 0}.cursor-readout{margin-top:9px;padding:9px 11px;border-radius:9px;background:#f5f7ff;color:#566381;font-size:12px;font-variant-numeric:tabular-nums}.cursor-readout strong{color:#24324c}.legend{display:flex;gap:16px;align-items:center;margin:13px 3px 0;color:#637087;font-size:11px}.legend-item{display:flex;align-items:center;gap:6px}.swatch{width:16px;height:3px;border-radius:3px;background:var(--blue)}.swatch.zero{height:1px;background:#b5bfce}.swatch.fill{height:8px;background:#e9edff;border:1px solid #d6ddff}.controls{padding:19px 19px 17px}.control-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.control-head h2,.section-title{margin:0;font-size:15px}.reset{border:0;background:transparent;color:var(--blue);font:inherit;font-weight:650;font-size:12px;cursor:pointer;padding:7px}.mode-field{margin-bottom:18px}.mode-select{width:100%;min-height:42px;padding:9px 11px;border:1px solid #e1e7f0;border-radius:9px;background:#fff;color:#26334d;font:inherit;font-size:13px}.mode-note{margin-top:6px;color:#8590a2;font-size:11px;line-height:1.45}.field{margin-bottom:21px}.fieldline{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}.field label{font-size:13px;font-weight:700}.value{font-variant-numeric:tabular-nums;font-size:14px;font-weight:750;color:var(--blue)}.unit{font-size:11px;color:#8791a2;margin-left:3px}.range{width:100%;height:6px;margin:8px 0 2px;appearance:none;border-radius:5px;background:linear-gradient(90deg,var(--blue) 0%,var(--blue) var(--fill,50%),#e9edf4 var(--fill,50%),#e9edf4 100%);outline:0;cursor:pointer}.range::-webkit-slider-thumb{appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:5px solid var(--blue);box-shadow:0 1px 5px #26385a24}.range::-moz-range-thumb{width:10px;height:10px;border-radius:50%;background:#fff;border:5px solid var(--blue);box-shadow:0 1px 5px #26385a24}.bounds{display:flex;justify-content:space-between;color:#a0a8b6;font-size:10px}.unit-toggle{display:inline-flex;gap:3px;padding:3px;background:#f1f3f8;border-radius:8px}.unit-toggle button{border:0;border-radius:6px;padding:4px 8px;background:transparent;color:#788397;font:inherit;font-size:10px;font-weight:700;cursor:pointer}.unit-toggle button.active{background:#fff;color:#303d58;box-shadow:0 1px 3px #1f315012}.readout{margin-top:2px;background:#f7f8fc;border-radius:11px;padding:12px 13px;color:#59667b;font-size:12px}.readout strong{color:var(--ink);font-size:13px}.readout-head{display:flex;justify-content:space-between;align-items:center}.period{font-variant-numeric:tabular-nums;color:#64718a;font-size:12px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;margin-top:17px}.metric{padding:15px 16px}.metric-label{color:var(--muted);font-size:11px;font-weight:650}.metric-value{margin-top:6px;font-size:25px;line-height:1.15;font-weight:780;font-variant-numeric:tabular-nums;letter-spacing:-.03em}.metric-value small{font-size:13px;letter-spacing:0;color:#66738b;font-weight:650}.metric-note{margin-top:6px;color:#9099a9;font-size:10px}.metric-note.ratio-note{margin-top:4px;color:#53649a;font-weight:650}.metric.rms{border-color:#dce4ff;background:linear-gradient(135deg,#fff,#f7f8ff)}.metric.rms .metric-value{color:var(--blue)}.bottom{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(255px,.75fr);gap:17px;margin-top:17px}.math{padding:19px 21px}.section-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.badge{font-size:10px;font-weight:700;color:#6070aa;background:#f0f2ff;border-radius:99px;padding:4px 8px}.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.step{background:#fafbfe;border:1px solid #edf0f6;border-radius:10px;padding:10px 12px;min-width:0}.step-label{font-size:10px;color:#8691a3;font-weight:650}.calc-hint{margin-top:4px;color:#7c8799;font-size:10px;line-height:1.45}.equation{margin-top:5px;font-family:"Cambria Math",Cambria,serif;font-size:15px;color:#27334d;overflow-wrap:anywhere}.equation .accent{color:var(--blue);font-weight:700}.explain{padding:19px 20px;background:#eef9f7;border-color:#dcefeb}.explain h2{margin:0 0 9px;font-size:14px}.explain p{margin:0;color:#526c69;font-size:12px;line-height:1.75}.explain .tip{margin-top:10px;padding-top:9px;border-top:1px solid #d5eae5;color:#348371;font-size:11px;font-weight:650}.footer{display:flex;justify-content:space-between;gap:14px;margin-top:22px;color:#9aa3b2;font-size:10px}.footer a{color:#8290aa;text-decoration:none}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:760px){.page{padding:24px 18px 32px}.intro{align-items:start}.hint{display:none}.layout{grid-template-columns:1fr}.controls{order:-1}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin-bottom:13px}.readout{margin-top:0}.bottom{grid-template-columns:1fr}.chart-panel{padding:16px}.metrics{gap:9px}.metric{padding:12px}.metric-value{font-size:22px}}
+@media(max-width:430px){.page{padding:19px 13px 25px}.topbar{margin-bottom:21px}.intro h1{font-size:27px}.intro p{font-size:12px}.field-grid{grid-template-columns:1fr;gap:3px}.controls{padding:16px}.steps{grid-template-columns:1fr}.metric{padding:10px 9px}.metric-value{font-size:20px}.metric-label{font-size:10px}.metric-note{font-size:9px}canvas{height:240px}.footer{flex-direction:column;gap:4px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="topbar"><div class="brand"><span class="brandmark" aria-hidden="true">∿</span><span>AC WAVE LAB <span style="color:#a1a9b6;font-weight:500">Form 4E FME</span></span></div></header>
+  <section class="intro"><div><h1>交流電波形模擬器</h1><p>調節電壓與頻率，觀察正弦波，探索有效值的由來。</p></div><span class="hint">切換波形並調整參數，探索電壓與有效值。</span></section>
+  <div class="layout">
+    <section class="panel chart-panel" aria-labelledby="chartTitle"><div class="panel-head"><h2 class="panel-title" id="chartTitle">電壓隨時間變化</h2><span class="live"><i class="dot" aria-hidden="true"></i>即時更新<button id="motionToggle" class="motion-toggle" type="button" aria-pressed="true">暫停動畫</button></span></div><div class="chart-wrap"><canvas id="wave" role="img" aria-label="交流電波形圖"></canvas></div><div class="chart-caption"><span>時間 t（毫秒）</span><span id="axisRange">固定 40 毫秒時間窗</span></div><div id="cursorReadout" class="cursor-readout">將游標移到波形上，查看該點電壓與峰峰值</div><div class="legend" aria-label="圖例"><span class="legend-item"><i class="swatch"></i>電壓 v(t)</span><span class="legend-item"><i class="swatch zero"></i>零電壓</span><span class="legend-item"><i class="swatch fill"></i>一個週期</span></div></section>
+    <section class="panel controls" aria-labelledby="controlsTitle"><div class="control-head"><h2 id="controlsTitle">實驗設定</h2><button class="reset" id="reset" type="button">重設 ↺</button></div><div class="mode-field"><div class="fieldline"><label for="waveform">波形類型</label></div><select class="mode-select" id="waveform"><option value="sine">正弦交流波</option><option value="half">半波整流</option><option value="full">全波整流</option><option value="square">雙極性方波</option></select><div class="mode-note" id="modeDescription">正弦交流波，波形頻率等於輸入頻率。</div></div><div class="field-grid"><div class="field"><div class="fieldline"><label for="voltage">峰值電壓 V<sub>p</sub></label><span><output class="value" id="voltageOut">12</output><span class="unit">V</span></span></div><input class="range" id="voltage" type="range" min="2" max="24" step="1" value="12" aria-label="調節峰值電壓"><div class="bounds"><span>2 V</span><span>24 V</span></div></div><div class="field"><div class="fieldline"><label for="frequency">輸入頻率 f</label><span><output class="value" id="frequencyOut">50</output><span class="unit" id="freqUnit">Hz</span></span></div><input class="range" id="frequency" type="range" min="1" max="100" step="1" value="50" aria-label="調節頻率"><div class="bounds"><span id="freqMin">1 Hz</span><span id="freqMax">100 Hz</span></div></div></div><div class="readout"><div class="readout-head"><strong>輸入／輸出頻率與週期</strong><span class="unit-toggle" aria-label="頻率單位"><button type="button" class="active" data-unit="Hz" aria-pressed="true">Hz</button><button type="button" data-unit="kHz" aria-pressed="false">kHz</button></span></div><div style="display:flex;justify-content:space-between;gap:8px;margin-top:7px"><span>輸出頻率 fₒ</span><span class="period" id="outputFrequency">50 Hz</span></div><div style="display:flex;justify-content:space-between;gap:8px;margin-top:4px"><span id="periodLabel">輸出週期 Tₒ = 1 / fₒ</span><span class="period" id="periodOut">0.0200 s</span></div><div style="display:flex;justify-content:space-between;gap:8px;margin-top:3px"><span id="omegaLabel">輸出角頻率 ωₒ = 2πfₒ</span><span class="period" id="omegaOut">314.2 rad/s</span></div></div></section>
+  </div>
+  <section class="metrics" aria-label="交流電波形數值" aria-live="polite"><article class="panel metric"><div class="metric-label">峰值電壓 Peak</div><div class="metric-value"><span id="peak">12.00</span> <small>V</small></div><div class="metric-note">由零線至波峰的最大值</div></article><article class="panel metric"><div class="metric-label">峰峰值電壓 Peak-to-peak</div><div class="metric-value"><span id="peakPeak">24.00</span> <small>V</small></div><div class="metric-note">波峰與波谷之間的總電壓</div></article><article class="panel metric rms"><div class="metric-label">有效值電壓 RMS</div><div class="metric-value"><span id="rms">8.49</span> <small>V</small></div><div class="metric-note">等效直流電壓（積分計算）</div><div class="metric-note ratio-note" id="rmsRatio">V<sub>RMS</sub> / V<sub>p</sub> ≈ 0.707（理論 1/√2）</div></article></section>
+  <div class="bottom"><section class="panel math" aria-labelledby="mathTitle"><div class="section-head"><h2 class="section-title" id="mathTitle">一步步計算有效值</h2><span class="badge" id="sampleBadge">每週期數值積分 · 2,048 點</span></div><div class="steps" aria-live="polite"><div class="step"><div class="step-label">① 波形方程式</div><div class="equation" id="waveEquation">v(t) = V<sub>p</sub> sin(2πft)</div></div><div class="step"><div class="step-label">② 有效值定義</div><div class="equation">V<sub>RMS</sub> = √[ (1/T) ∫<sub>0</sub><sup>T</sup> v(t)<sup>2</sup> dt ]</div></div><div class="step"><div class="step-label">③ 代入週期及積分值</div><div class="equation" id="substitution">≈ √[(1 ÷ 0.0200) × 1.4400]</div><div class="calc-hint">積分值單位 V²·s；T 用秒。可輸入 √((1 ÷ T) × 積分值)</div></div><div class="step"><div class="step-label">④ 開平方，得出有效值</div><div class="equation" id="resultEq">V<sub>RMS</sub> ≈ <span class="accent">8.49 V</span></div></div></div></section><aside class="panel explain"><h2>💡 為甚麼要用平方？</h2><p>交流電不斷改變方向，直接取平均會互相抵銷。把每一刻的電壓平方後，負值也變成正值；對一個週期取平均，再開平方，就得到與同樣發熱效果的直流電壓。</p><div class="tip">試試改變頻率：理想正弦波、整流波和方波的 RMS 均不受頻率影響；全波整流的輸出頻率會加倍。</div></aside></div>
+  <footer class="footer"><span>使用理想波形模型 · 數值積分以 2,048 個等距中點取樣</span><span>物理探索 · 由波形看懂有效值</span></footer>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id), canvas=$('wave'), ctx=canvas.getContext('2d'), cursorReadout=$('cursorReadout');
+const WINDOW_SECONDS=.04, PLAYBACK_SCALE=.006;
+const v=$('voltage'), f=$('frequency'), motionToggle=$('motionToggle'), waveSelect=$('waveform'); let unit='Hz', waveType=waveSelect.value, phase=0, pointerFraction=null, last=performance.now(), raf, playing=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const N=2048;
+function fmt(x,d=2){return Number(x).toFixed(d)}
+function waveformValue(t,phase,hz,vp,type){
+ const wave=Math.sin(2*Math.PI*hz*t+phase);
+ if(type==='half')return Math.max(0,wave)*vp;
+ if(type==='full')return Math.abs(wave)*vp;
+ if(type==='square')return wave>=0?vp:-vp;
+ return wave*vp;
+}
+function calculate(){
+ const vp=+v.value, hz=+f.value*(unit==='kHz'?1000:1), waveHz=waveType==='full'?2*hz:hz, T=1/waveHz, dt=T/N;
+ let sum=0;
+ for(let i=0;i<N;i++){const t=(i+.5)*dt;const y=waveformValue(t,0,hz,vp,waveType);sum+=y*y*dt;}
+ const meanSq=sum/T, rms=Math.sqrt(meanSq), peakPeak=(waveType==='half'||waveType==='full')?vp:2*vp, omega=2*Math.PI*waveHz;
+ $('voltageOut').value=vp;$('voltageOut').textContent=vp;
+ $('frequencyOut').value=unit==='kHz'?fmt(hz/1000,3):fmt(hz,0);$('frequencyOut').textContent=unit==='kHz'?fmt(hz/1000,3):fmt(hz,0);$('outputFrequency').textContent=unit==='kHz'?fmt(waveHz/1000,3)+' kHz':fmt(waveHz,0)+' Hz';
+ $('freqUnit').textContent=unit;$('freqMin').textContent=unit==='kHz'?'0.001 kHz':'1 Hz';$('freqMax').textContent=unit==='kHz'?'0.100 kHz':'100 Hz';
+ $('periodOut').textContent=T>=.01?fmt(T,4)+' s':fmt(T*1000,3)+' ms';$('omegaOut').textContent=fmt(omega,1)+' rad/s';
+ $('peak').textContent=fmt(vp);$('peakPeak').textContent=fmt(peakPeak);$('rms').textContent=fmt(rms);
+ const ratioFactors={sine:'1/√2',half:'1/2',full:'1/√2',square:'1'};$('rmsRatio').innerHTML='V<sub>RMS</sub> / V<sub>p</sub> ≈ '+fmt(rms/vp,3)+' <span>（理論 '+ratioFactors[waveType]+'）</span>';
+ $('substitution').innerHTML='≈ √[(1 ÷ '+fmt(T,4)+') × '+fmt(sum,4)+']';
+ $('resultEq').innerHTML='V<sub>RMS</sub> ≈ <span class="accent">'+fmt(rms)+' V</span>';
+ const descriptions={sine:'正弦交流波，波形頻率等於輸入頻率。',half:'理想半波整流：截去負半週，輸出頻率與輸入頻率相同。',full:'理想全波整流：負半週翻到正值，輸出頻率是輸入的兩倍。',square:'雙極性方波，在 +Vp 和 −Vp 之間切換；波形頻率等於輸入頻率。'};
+ const equations={sine:'v(t) = V<sub>p</sub> sin(2πft)',half:'v(t) = max[0, V<sub>p</sub> sin(2πft)]',full:'v(t) = |V<sub>p</sub> sin(2πft)|',square:'v(t) = V<sub>p</sub> sgn[sin(2πft)]'};
+ $('modeDescription').textContent=descriptions[waveType];$('waveEquation').innerHTML=equations[waveType];
+ $('periodLabel').textContent='輸出週期 Tₒ = 1 / fₒ';$('omegaLabel').textContent='輸出角頻率 ωₒ = 2πfₒ';
+ for(const el of [v,f]){const pct=(el.value-el.min)/(el.max-el.min)*100;el.style.setProperty('--fill',pct+'%')}
+ $('axisRange').textContent='固定 40 毫秒時間窗 · 約 '+fmt(waveHz*WINDOW_SECONDS,2)+' 個週期';
+ canvas.setAttribute('aria-label',descriptions[waveType]+' 電壓波形圖');
+ draw(hz,vp,waveType);
+}
+function draw(hz,vp,type){
+ const rect=canvas.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2), w=Math.max(1,rect.width),h=Math.max(1,rect.height);
+ if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr)}ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+ const m={l:43,r:16,t:20,b:29}, cw=w-m.l-m.r,ch=h-m.t-m.b, mid=m.t+ch/2, amp=ch*.39, duration=WINDOW_SECONDS, waveHz=type==='full'?2*hz:hz, period=1/waveHz;
+ ctx.font='11px Inter, "Microsoft JhengHei", sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';
+ for(let i=-2;i<=2;i++){const y=mid-i*amp/2;ctx.strokeStyle=i===0?'#bac4d3':'#edf0f5';ctx.lineWidth=i===0?1.2:1;ctx.beginPath();ctx.moveTo(m.l,y);ctx.lineTo(w-m.r,y);ctx.stroke();ctx.fillStyle='#7f8ba0';ctx.fillText(fmt(vp*i/2,0),m.l-8,y)}
+ ctx.textAlign='center';ctx.textBaseline='top';for(let i=0;i<=4;i++){const x=m.l+cw*i/4;ctx.strokeStyle='#eef1f6';ctx.beginPath();ctx.moveTo(x,m.t);ctx.lineTo(x,m.t+ch);ctx.stroke();ctx.fillStyle='#8994a6';ctx.fillText((duration*1000*i/4).toFixed(0),x,h-20)}
+ ctx.save();ctx.beginPath();ctx.rect(m.l,m.t,cw,ch);ctx.clip();
+ const x0=m.l,x1=m.l+cw*Math.min(period/duration,1);ctx.fillStyle='#f1f3ff';ctx.fillRect(x0,m.t,x1-x0,ch);
+ const points=Math.max(240,Math.floor(cw*1.4));
+ const traceWave=()=>{ctx.beginPath();if(type==='square'){const angleStart=phase,angleEnd=phase+duration*hz*2*Math.PI;let sign=Math.sin(angleStart+1e-9)>=0?1:-1,y=mid-amp*sign;ctx.moveTo(m.l,y);for(let k=Math.floor(angleStart/Math.PI)+1;k<=Math.floor(angleEnd/Math.PI);k++){const t=(k*Math.PI-phase)/(2*Math.PI*hz);if(t<=0||t>=duration)continue;const x=m.l+t/duration*cw;ctx.lineTo(x,y);sign=-sign;y=mid-amp*sign;ctx.lineTo(x,y)}ctx.lineTo(m.l+cw,y)}else{for(let i=0;i<=points;i++){const x=i/points*cw,y=mid-amp*waveformValue(x/cw*duration,phase,hz,vp,type)/vp;i?ctx.lineTo(m.l+x,y):ctx.moveTo(m.l+x,y)}}};
+ traceWave();ctx.lineTo(m.l+cw,mid);ctx.lineTo(m.l,mid);ctx.closePath();ctx.fillStyle='rgba(67,97,238,.07)';ctx.fill();
+ traceWave();ctx.strokeStyle='#4361ee';ctx.lineWidth=2.7;ctx.lineJoin='round';ctx.lineCap='round';ctx.stroke();ctx.restore();
+ if(pointerFraction!==null){const px=m.l+pointerFraction*cw, time=pointerFraction*duration, value=waveformValue(time,phase,hz,vp,type), py=mid-amp*value/vp;ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyle='rgba(67,97,238,.48)';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(px,m.t);ctx.lineTo(px,m.t+ch);ctx.moveTo(m.l,py);ctx.lineTo(w-m.r,py);ctx.stroke();ctx.setLineDash([]);ctx.beginPath();ctx.arc(px,py,4,0,Math.PI*2);ctx.fillStyle='#fff';ctx.fill();ctx.lineWidth=2;ctx.strokeStyle='#4361ee';ctx.stroke();ctx.restore();const p2p=(type==='half'||type==='full')?vp:2*vp;cursorReadout.innerHTML='t = <strong>'+fmt(time*1000,2)+' ms</strong>　 v(t) = <strong>'+fmt(value,2)+' V</strong>　 V<sub>pp</sub> = <strong>'+fmt(p2p,2)+' V</strong>'}else{cursorReadout.textContent='將游標移到波形上，查看該點電壓與峰峰值'}
+ ctx.fillStyle='#748096';ctx.textAlign='left';ctx.textBaseline='bottom';ctx.fillText('v (V)',m.l,14);
+}
+function animate(now){if(!playing)return;const dt=Math.min((now-last)/1000,.05);last=now;phase=(phase+dt*2*Math.PI*(+f.value*(unit==='kHz'?1000:1))*PLAYBACK_SCALE)%(Math.PI*2);draw(+f.value*(unit==='kHz'?1000:1),+v.value,waveType);raf=requestAnimationFrame(animate)}motionToggle.textContent=playing?'暫停動畫':'播放動畫';motionToggle.setAttribute('aria-pressed',String(playing));
+motionToggle.addEventListener('click',()=>{playing=!playing;last=performance.now();motionToggle.textContent=playing?'暫停動畫':'播放動畫';motionToggle.setAttribute('aria-pressed',String(playing));if(playing){raf=requestAnimationFrame(animate)}else{cancelAnimationFrame(raf);draw(+f.value*(unit==='kHz'?1000:1),+v.value,waveType)}});
+window.matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',event=>{if(event.matches&&playing){playing=false;cancelAnimationFrame(raf);motionToggle.textContent='播放動畫';motionToggle.setAttribute('aria-pressed','false')}});
+canvas.addEventListener('pointermove',event=>{const rect=canvas.getBoundingClientRect(),x=event.clientX-rect.left,left=43,right=rect.width-16;if(x<left||x>right){pointerFraction=null}else{pointerFraction=(x-left)/(right-left)}draw(+f.value*(unit==='kHz'?1000:1),+v.value,waveType)});
+canvas.addEventListener('pointerleave',()=>{pointerFraction=null;draw(+f.value*(unit==='kHz'?1000:1),+v.value,waveType)});
+waveSelect.addEventListener('change',()=>{waveType=waveSelect.value;calculate()});v.addEventListener('input',calculate);f.addEventListener('input',calculate);
+document.querySelectorAll('[data-unit]').forEach(btn=>btn.addEventListener('click',()=>{unit=btn.dataset.unit;document.querySelectorAll('[data-unit]').forEach(b=>{const active=b===btn;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});calculate()}));
+$('reset').addEventListener('click',()=>{v.value=12;f.value=50;waveSelect.value='sine';waveType='sine';unit='Hz';document.querySelectorAll('[data-unit]').forEach(b=>{const active=b.dataset.unit==='Hz';b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});calculate()});
+new ResizeObserver(calculate).observe(canvas);calculate();if(playing)raf=requestAnimationFrame(animate);
+})();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
